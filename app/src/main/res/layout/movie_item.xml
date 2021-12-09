@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/black">
+
+    <RelativeLayout
+        android:layout_width="@dimen/width_size"
+        android:layout_height="@dimen/height_size"
+        android:layout_margin="@dimen/margin_size">
+
+        <ImageView
+            android:id="@+id/image_movie"
+            android:src="@drawable/rampage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ImageView>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
