@@ -2,16 +2,28 @@ package com.example.movies
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movies.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var manager: RecyclerView.LayoutManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val itemMovie = MovieItem(R.drawable.rampage)
-        val itemMovie2 = MovieItem(R.drawable.rampage)
-        val itemMovie3 = MovieItem(R.drawable.rampage)
-        val itemMovie4 = MovieItem(R.drawable.rampage)
-        findViewById<RecyclerView>(R.id.recycler_view).adapter = MovieAdapter(listOf(itemMovie, itemMovie2, itemMovie3, itemMovie4))
+
+        var movies = listOf(MovieItem(R.drawable.rampage), MovieItem(R.drawable.rampage), MovieItem(R.drawable.rampage), MovieItem(R.drawable.rampage), MovieItem(R.drawable.rampage), MovieItem(R.drawable.rampage))
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        manager = GridLayoutManager(this, 2)
+
+        binding.recyclerView.apply {
+            adapter = MovieAdapter(movies)
+            layoutManager = manager
+        }
     }
 }

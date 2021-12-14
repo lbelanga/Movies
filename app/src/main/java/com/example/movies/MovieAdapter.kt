@@ -1,18 +1,28 @@
 package com.example.movies
 
-
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movies.databinding.MovieItemBinding
 
 
-class MovieAdapter(private val movieItemList: List<MovieItem>) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(private val movieItemList: List<MovieItem>) :
+    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+
+    inner class MovieViewHolder(private val binding: MovieItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(movieItem: MovieItem) {
+
+            binding.imageMovie.setImageResource(movieItem.imageResource)
+
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
-        return MovieViewHolder(view)
+        val inflater = LayoutInflater.from(parent.context)
+
+        val binding = MovieItemBinding.inflate(inflater, parent, false)
+        return MovieViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
@@ -21,9 +31,4 @@ class MovieAdapter(private val movieItemList: List<MovieItem>) : RecyclerView.Ad
 
     override fun getItemCount(): Int = movieItemList.size
 
-    class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(movieItem: MovieItem) {
-            itemView.findViewById<ImageView>(R.id.image_movie).setImageResource(movieItem.imageResource)
-        }
-    }
 }

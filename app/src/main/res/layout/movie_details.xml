@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_grey">
+
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="232dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/rampage2" />
+
+        <ImageView
+            android:id="@+id/favorite_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_below="@id/background_image"
+            android:src="@drawable/ic_baseline_favorite_border_24" />
+
+        <TextView
+            android:id="@+id/movie_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/favorite_icon"
+            android:layout_below="@id/background_image"
+            android:layout_marginStart="6dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:text="7.5" />
+
+        <TextView
+            android:id="@+id/movie_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shape"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            tools:text="Davis Okoye é um primatologista, um homem recluso que compartilha um vínculo inabalável com George, um gorila muito inteligente que está sob seus cuidados desde o nascimento. Quando um experimento genético desonesto é feito em um grupo de predadores que inclui o primata, os animais se transformam em monstros que destroem tudo em seu caminho. Agora, Okoye precisa conseguir um antídoto e impedir que seu amigo provoque uma catástrofe global." />
+
+        <RelativeLayout
+            android:id="@+id/shape"
+            android:layout_width="170dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/date_shape"
+            android:layout_below="@+id/background_image"
+            android:layout_toEndOf="@id/movie_rating">
+
+            <ImageView
+                android:id="@+id/calendar_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="18dp"
+                android:src="@drawable/ic_baseline_calendar_today_24" />
+
+            <TextView
+                android:id="@+id/movie_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/calendar_icon"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="3dp"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                tools:text="16/10/2020" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>
